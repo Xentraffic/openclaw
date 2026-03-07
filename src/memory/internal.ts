@@ -53,7 +53,7 @@ export function isMemoryPath(relPath: string): boolean {
   if (normalized === "MEMORY.md" || normalized === "memory.md") {
     return true;
   }
-  return normalized.startsWith("memory/");
+  return normalized.startsWith("memory/") || normalized.startsWith("bank/");
 }
 
 async function walkDir(dir: string, files: string[]) {
@@ -105,6 +105,15 @@ export async function listMemoryFiles(
     const dirStat = await fs.lstat(memoryDir);
     if (!dirStat.isSymbolicLink() && dirStat.isDirectory()) {
       await walkDir(memoryDir, result);
+    }
+  } catch {}
+
+  // Bank directory: curated memory pages (entities, opinions, world, experience)
+  const bankDir = path.join(workspaceDir, "bank");
+  try {
+    const bankStat = await fs.lstat(bankDir);
+    if (!bankStat.isSymbolicLink() && bankStat.isDirectory()) {
+      await walkDir(bankDir, result);
     }
   } catch {}
 
