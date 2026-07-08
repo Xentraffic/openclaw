@@ -183,7 +183,7 @@ Supports base64 or URL sources:
 Allowed MIME types (current): `text/plain`, `text/markdown`, `text/html`, `text/csv`,
 `application/json`, `application/pdf`.
 
-Max size (current): 5MB.
+Max size (current): 25MB.
 
 Current behavior:
 
@@ -229,12 +229,12 @@ Defaults can be tuned under `gateway.http.endpoints.responses`:
               "application/json",
               "application/pdf",
             ],
-            maxBytes: 5242880,
+            maxBytes: 26214400,
             maxChars: 200000,
             maxRedirects: 3,
             timeoutMs: 10000,
             pdf: {
-              maxPages: 4,
+              maxPages: 50,
               maxPixels: 4000000,
               minTextChars: 200,
             },
@@ -265,11 +265,11 @@ Defaults when omitted:
 
 - `maxBodyBytes`: 20MB
 - `maxUrlParts`: 8
-- `files.maxBytes`: 5MB
+- `files.maxBytes`: 25MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
 - `files.timeoutMs`: 10s
-- `files.pdf.maxPages`: 4
+- `files.pdf.maxPages`: 50
 - `files.pdf.maxPixels`: 4,000,000
 - `files.pdf.minTextChars`: 200
 - `images.maxBytes`: 10MB
