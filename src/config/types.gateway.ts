@@ -272,7 +272,7 @@ export type GatewayHttpResponsesFilesConfig = {
   urlAllowlist?: string[];
   /** Allowed MIME types (case-insensitive). */
   allowedMimes?: string[];
-  /** Max bytes per file. Default: 5MB. */
+  /** Max bytes per file. Default: 25MB. */
   maxBytes?: number;
   /** Max decoded characters per file. Default: 200k. */
   maxChars?: number;
@@ -285,7 +285,7 @@ export type GatewayHttpResponsesFilesConfig = {
 };
 
 export type GatewayHttpResponsesPdfConfig = {
-  /** Max pages to parse/render. Default: 4. */
+  /** Max pages to parse/render. Default: 50. */
   maxPages?: number;
   /** Max pixels per rendered page. Default: 4M. */
   maxPixels?: number;
